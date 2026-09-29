@@ -29,7 +29,7 @@ const { withNativeFederation, share, NG_SKIP_LIST } =
 // host compiles its own copy under a different specifier, so it is bundled into this remote.
 
 // The ONE line to change per extension.
-const REMOTE_NAME = 'duploExtensionHelloworld';
+const REMOTE_NAME = 'duploExtensionAgentfoundry';
 
 module.exports = withNativeFederation({
   name: REMOTE_NAME,

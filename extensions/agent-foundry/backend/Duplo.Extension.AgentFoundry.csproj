@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <!--
-    Backend for the Hello World extension — compiled by the duplo-extension-dev skill with `dotnet publish`.
+    Backend for the Agent Foundry thin-adapter extension — compiled by the duplo-extension-dev skill with `dotnet publish`.
     The build skill:
       1. GET  {host}/v1/aiservicedesk/extensions/sdk-version  -> -p:DuploSdkVersion=<value>
       2. GET  {host}/v1/aiservicedesk/extensions/sdk-bundle   -> unzip into ./sdk-packages

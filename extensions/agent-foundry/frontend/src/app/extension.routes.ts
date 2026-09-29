@@ -1,18 +1,13 @@
 import { Routes } from '@angular/router';
-import { ListHelloComponent } from './list/list-hello.component';
-import { AddHelloComponent } from './add/add-hello.component';
-import { ViewHelloComponent } from './view/view-hello.component';
+import { ListRunComponent } from './list/list-run.component';
+import { AddRunComponent } from './add/add-run.component';
+import { ViewRunComponent } from './view/view-run.component';
 
 // What the host lazy-loads (manifest frontend.remote.exposedModule = './Extension').
-//
-// A `Routes` array, not an NgModule: Angular's `loadChildren` accepts either, and the host's
-// extension-route-registrar resolves the export named `Extension` and hands it straight to loadChildren.
-// The components are standalone and declare their own `imports`, so there is nothing left for a module
-// to do. THE EXPORTED CONST MUST STILL BE NAMED `Extension`.
+// THE EXPORTED CONST MUST BE NAMED `Extension`.
 export const Extension: Routes = [
-  { path: '', component: ListHelloComponent },
-  { path: 'add', component: AddHelloComponent },
-  // Add and Edit share one component (platform convention); `action` drives the labels.
-  { path: 'edit/:id', component: AddHelloComponent, data: { action: 'Edit' } },
-  { path: 'view/:id', component: ViewHelloComponent },
+  { path: '', component: ListRunComponent },
+  { path: 'add', component: AddRunComponent },
+  { path: 'edit/:id', component: AddRunComponent, data: { action: 'Edit' } },
+  { path: 'view/:id', component: ViewRunComponent },
 ];

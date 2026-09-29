@@ -1,63 +1,76 @@
 {
   "manifestVersion": "1.0",
-  "id": "duplo.examples.helloworld",
-  "name": "Hello World",
-  "version": "0.1.0",
-
+  "id": "biobitworks.agentfoundry",
+  "name": "Agent Foundry",
+  "version": "0.1.1",
   "sdkVersion": "REPLACED_BY_SKILL_FROM_sdk-version_ENDPOINT",
   "backend": {
-    "assemblyDir": "duplo.examples.helloworld/0.1.0/backend",
-    "entryAssembly": "Duplo.Extension.HelloWorld.dll"
+    "assemblyDir": "biobitworks.agentfoundry/0.1.1/backend",
+    "entryAssembly": "Duplo.Extension.AgentFoundry.dll"
   },
-
   "resources": [
     {
-      "ticketOriginType": "HelloWorld",
-      "restSegment": "extensions/helloworlds",
-      "subType": "hello-world",
+      "ticketOriginType": "AgentFoundryRun",
+      "restSegment": "extensions/agentfoundry-runs",
+      "subType": "agent-foundry-run",
       "archetype": "typed",
       "registrar": "DevOpsResource",
-      "entityType": "Duplo.Extension.HelloWorld.HelloWorld",
-      "specType": "Duplo.Extension.HelloWorld.HelloWorldSpec",
-      "resultType": "Duplo.Extension.HelloWorld.HelloWorldResult",
-      "hooksType": "Duplo.Extension.HelloWorld.HelloWorldHooks",
-      "serviceType": "Duplo.Extension.HelloWorld.HelloWorldService"
+      "entityType": "Duplo.Extension.AgentFoundry.AgentFoundryRun",
+      "specType": "Duplo.Extension.AgentFoundry.AgentFoundryRunSpec",
+      "resultType": "Duplo.Extension.AgentFoundry.AgentFoundryRunResult",
+      "hooksType": "Duplo.Extension.AgentFoundry.AgentFoundryRunHooks",
+      "serviceType": "Duplo.Extension.AgentFoundry.AgentFoundryRunService"
     }
   ],
-
   "skills": [
-    { "folder": "duplo.examples.helloworld/0.1.0/skills/provision-helloworld", "isBuiltIn": true }
+    {
+      "folder": "biobitworks.agentfoundry/0.1.1/skills/provision-agentfoundry",
+      "isBuiltIn": true
+    }
   ],
   "skillMappings": [
-    { "originType": "HelloWorld", "subType": "hello-world", "skillNames": ["provision-helloworld"], "timeout": { "provision": 300, "deprovision": 120 } }
+    {
+      "originType": "AgentFoundryRun",
+      "subType": "agent-foundry-run",
+      "skillNames": [
+        "provision-agentfoundry"
+      ],
+      "timeout": {
+        "provision": 600,
+        "deprovision": 120
+      }
+    }
   ],
-
   "frontend": {
     "remote": {
-      "remoteName": "duploExtensionHelloworld",
-      "remoteEntry": "/v1/aiservicedesk/extensions/duplo.examples.helloworld/fe/remoteEntry.json",
+      "remoteName": "duploExtensionAgentfoundry",
+      "remoteEntry": "/v1/aiservicedesk/extensions/biobitworks.agentfoundry/fe/remoteEntry.json",
       "exposedModule": "./Extension",
       "type": "module"
     },
     "menus": [
       {
-        "id": "duplo.examples.helloworld-devops",
+        "id": "biobitworks.agentfoundry-devops",
         "title": "DevOps",
         "type": "collapsible-section",
         "children": [
           {
-            "id": "duplo.examples.helloworld-hello-world",
-            "title": "Hello World",
+            "id": "biobitworks.agentfoundry-runs",
+            "title": "Agent Foundry",
             "type": "item",
-            "matIcon": "waving_hand",
-            "relativeUrl": "extensions/helloworlds",
+            "matIcon": "troubleshoot",
+            "relativeUrl": "extensions/agentfoundry-runs",
             "order": 40
           }
         ]
       }
     ],
     "routes": [
-      { "path": "extensions/helloworlds", "resourceType": "HelloWorld", "subType": "hello-world" }
+      {
+        "path": "extensions/agentfoundry-runs",
+        "resourceType": "AgentFoundryRun",
+        "subType": "agent-foundry-run"
+      }
     ]
   }
 }
