@@ -1,0 +1,3 @@
+# Upstream doc false positives (verified by inspection): prose line in docs/README.md; literal 'sk-or-v1-...' placeholder in a curl example.
+e24f5f83c10d6889eb3422c2a2e17fb0fe9b324e:docs/README.md:generic-api-key:23
+e24f5f83c10d6889eb3422c2a2e17fb0fe9b324e:hackday/Sponsor Integrations.md:curl-auth-header:213
